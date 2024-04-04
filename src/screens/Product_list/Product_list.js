@@ -24,7 +24,7 @@ const Component = (props) => {
     const OnPageClicked = (e) => { setPageInfo({ page: 0, pageSize: 5 }); if (e) setPageInfo(e); }
 
 
-                                
+
     const FetchResults = async () => {
         setRows([]);
         setRowsCount(0);
@@ -33,8 +33,8 @@ const Component = (props) => {
 
 
         global.Busy(true);
-        
-        await Api.GetProductsSingle(null, 'producttype','productprice','document').then(async (resP) => {
+
+        await Api.GetProductsMulti(null, "MainImage").then(async (resP) => {
             if (resP.status) {
                 for (let i = 0; i < resP.values.length; i++) {
                     let _Product = resP.values[i];
@@ -48,7 +48,7 @@ const Component = (props) => {
                         UOM: _Product.UnitOfMeasurement,
                     };
 
-                    _product.MainImage &&
+                    _Product.MainImage &&
                         await Api.GetDocumentSingle(_Product.MainImage.DocId, true, _Product.MainImage.DocType).then((resI) => {
                             _row = { ..._row, mainImage: resI.values };
                         })
@@ -58,6 +58,7 @@ const Component = (props) => {
             }
         });
 
+        console.log(_rows)
         setRows(_rows);
         setRowsCount(_rows.length);
         global.Busy(false);
@@ -79,7 +80,7 @@ const Component = (props) => {
                     <Stack direction="row">
                         <Grid container sx={{ justifyContent: 'flex-end' }}>
                             <SearchInput searchStr={searchStr} onSearchChanged={OnSearchChanged} />
-                                                        <IconButton
+                            <IconButton
                                 size="medium"
                                 edge="start"
                                 color="inherit"

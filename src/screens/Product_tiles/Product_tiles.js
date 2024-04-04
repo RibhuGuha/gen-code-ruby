@@ -69,9 +69,9 @@ const Component = (props) => {
 
         let _rows = [];
         await Api.GetProductsMulti(
-            query, 
-            'producttype','productprice','document'
-            )
+            query,
+            "PType,PrPrice,MainImage"
+        )
             .then(async (res) => {
                 if (res.status) {
                     _rows = res.values || [];
@@ -81,8 +81,8 @@ const Component = (props) => {
                             await Api.GetDocumentSingle(_rows[i].MainImage.DocId, true).then((rslt) => {
                                 _rows[i].ProductMainImageData = rslt.values;
                             })
-                            _rows[i].ProductTypeName = _rows[i].ProductType?.ProductTypeName || 'NA';
-                            _rows[i].Price = _rows[i].ProductPrice?.Price || 0;
+                        _rows[i].ProductTypeName = _rows[i].ProductType?.ProductTypeName || 'NA';
+                        _rows[i].Price = _rows[i].ProductPrice?.Price || 0;
                     }
                 } else {
                     console.log(res.statusText);

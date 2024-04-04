@@ -1,3 +1,3 @@
-const apiUrl = "http://52.15.220.173:8081/ecom/";
+const apiUrl = "https://ruby-refapp-bknd.code-wizard.in/ExclusiveAccess/";
 
 export default apiUrl;

@@ -80,7 +80,7 @@ const Component = (props) => {
         let _rows = [];
 
 
-        await Api.GetProductsMulti(query, 'ProductType')
+        await Api.GetProductsMulti(query, 'PType')
             .then(async (res) => {
                 if (res.status) {
                     _rows = res.values || [];

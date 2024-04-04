@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Box, Typography, Grid, Stack, Button, Divider } from '@mui/material';
 import Container from "screens/container";
 import { useTheme } from '@mui/material/styles';
-import ProductJsonConfig from "config/Product_Details_config.json";
+import ProductJsonConfig from "config/Product_detail_config.json";
 import RenderFormContols from "./child/formcontrols";
 import { useNavigate } from "react-router-dom";
 import * as Api from "shared/services";

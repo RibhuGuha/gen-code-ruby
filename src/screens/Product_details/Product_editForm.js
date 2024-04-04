@@ -7,7 +7,7 @@ import Container from "screens/container";
 import { useNavigate, useParams } from "react-router-dom";
 import * as Api from "shared/services";
 import { GetMetaDataInfo } from "shared/common";
-import ProductJsonConfig from "config/Product_Details_config.json";
+import ProductJsonConfig from "config/Product_detail_config.json";
 import RenderFormContols from "./child/formcontrols";
 import Support from "shared/support";
 import Helper from "shared/helper";
